@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap');
+
+:root {
+  /* Colors */
+  /* Primary */
+  --bright-orange: hsl(31, 77%, 52%);
+  --dark-cyan: hsl(184, 100%, 22%);
+  --very-dark-cyan: hsl(179, 100%, 13%);
+  /* Neutral */
+  --main-paragraphs: hsla(0, 0%, 100%, 0.75);
+  --main-headings-bg-buttons: hsl(0, 0%, 95%);
+
+  /* Typography */
+  --fs-base: .9375rem;
+  --fw-bold: 700;
+  --fw-regular: 400;
+  --ff-accent: 'Big Shoulders Display', cursive;
+  --ff-base: 'Lexend Deca', sans-serif;
+
+  /* Border */
+  --bdr-radius: .5rem;
+  --btn-bdr-radius: 3rem;
+}
+
+/* Code from: https://www.joshwcomeau.com/css/custom-css-reset/ */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+
+/*
+  Typographic tweaks!
+  4. Add accessible line-height
+  5. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/*
+  6. Improve media defaults
+*/
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*
+  7. Remove built-in form typography styles
+*/
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/*
+  8. Avoid text overflows
+*/
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/*
+  9. Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* General styles */
+body {
+  display: grid;
+  place-content: center;
+  min-height: 100vh;
+  margin: 1.5rem;
+  font: var(--fw-regular) var(--fs-base) var(--ff-base);
+  color: var(--main-paragraph);
+  background-color: var(--main-background);
+}
+
+main {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  max-width: 920px;
+  border-radius: var(--bdr-radius);
+  overflow: auto;
+}
+
+a {
+  color: inherit;
+}
+
+/* Card */
+.card {
+  --content-spacing: 1.5rem;
+  --content-padding: 3rem;
+
+  display: grid;
+  gap: var(--content-spacing);
+  padding: var(--content-padding);
+  color: var(--main-paragraphs);
+  background-color: #c3c3c3; /* fallback */
+}
+
+/* You could use inline styles with custom properties for this 😁 */
+.card[data-color="orange"] {
+  background-color: var(--bright-orange);
+}
+
+.card[data-color="orange"] .btn {
+  color: var(--bright-orange);
+}
+
+.card[data-color="cyan"] {
+  background-color: var(--dark-cyan);
+}
+
+.card[data-color="cyan"] .btn {
+  color: var(--dark-cyan);
+}
+
+.card[data-color="dark-cyan"] {
+  background-color: var(--very-dark-cyan);
+}
+
+.card[data-color="dark-cyan"] .btn {
+  color: var(--very-dark-cyan);
+}
+
+.card__title {
+  margin-block-start: .5rem;
+  font: var(--fw-bold) 2.4rem var(--ff-accent);
+  text-transform: uppercase;
+  color: var(--main-headings-bg-buttons);
+}
+
+.card__text {
+  max-width: 50ch;
+  line-height: 1.8;
+}
+
+.btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: .75rem;
+  height: 50px;
+  padding: .75em 2.1em;
+  border: none;
+  border-radius: var(--btn-bdr-radius);
+  color: #1f1f1f; /* fallback */
+  background-color: var(--main-headings-bg-buttons);
+  cursor: pointer;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+
+.card[data-color] .btn:is(:hover, :focus-visible) {
+  /* .card[data-color] selector is for specificity.
+    (If you use inline styles and custom properties, omit it)
+  */
+  border: .125rem solid var(--main-headings-bg-buttons);
+  color: var(--main-headings-bg-buttons);
+  background-color: transparent;
+}
+
+/* Attribution */
+.attribution {
+  margin-block: 1rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+
+/* Responsive */
+@media screen and (min-width: 940px) {
+  .card__footer {
+    margin-block-start: 3rem;
+  }
+}
