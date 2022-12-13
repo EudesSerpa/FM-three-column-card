@@ -29,7 +29,7 @@ Users should be able to:
 ### Links
 
 - Repository URL: [Github](https://github.com/EudesSerpa/FM-three-column-card).
-- Live Site URL: [See demo](https://your-live-site-url.com).
+- Live Site URL: [See demo](https://fm-three-columns-card.netlify.app/).
 
 ## My process
 
