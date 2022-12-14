@@ -139,7 +139,6 @@ a {
   background-color: #c3c3c3; /* fallback */
 }
 
-/* You could use inline styles with custom properties for this 😁 */
 .card[data-color="orange"] {
   background-color: var(--bright-orange);
 }
@@ -181,6 +180,7 @@ a {
   justify-content: center;
   align-items: center;
   gap: .75rem;
+  width: 150px;
   height: 50px;
   padding: .75em 2.1em;
   border: none;
@@ -190,12 +190,10 @@ a {
   cursor: pointer;
   text-decoration: none;
   text-transform: capitalize;
+  transition: color .3s ease-in-out, background-color .3s ease-in-out;
 }
 
 .card[data-color] .btn:is(:hover, :focus-visible) {
-  /* .card[data-color] selector is for specificity.
-    (If you use inline styles and custom properties, omit it)
-  */
   border: .125rem solid var(--main-headings-bg-buttons);
   color: var(--main-headings-bg-buttons);
   background-color: transparent;
